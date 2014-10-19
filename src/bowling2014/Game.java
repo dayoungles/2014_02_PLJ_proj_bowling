@@ -57,15 +57,15 @@ public class Game {
 			System.out.print("|");
 			frame = frameList.get(i); 
 			
-			if(frame.box0.isSymbolExist() ){
-				System.out.print(frame.box0.getSymbolString());
+			if(frame.box0.getSymbol() != ScoreSymbol.NONE){
+				System.out.print(frame.box0.getSymbol().getSymbol());
 			} else {
 				System.out.print(frame.box0.getScore());
 			}
 			System.out.print("|");
 			
-			if(frame.box1.isSymbolExist() ){
-				System.out.print(frame.box1.getSymbolString());
+			if(frame.box1.getSymbol() != ScoreSymbol.NONE){
+				System.out.print(frame.box1.getSymbol().getSymbol());
 			} else {
 				System.out.print(frame.box1.getScore());
 			}

@@ -25,7 +25,7 @@ public class ScoreBoxTest extends TestCase {
 	public void testIsSymbolExist() throws Exception {
 		box.setScore(0);
 		box.printBox();
-		assertTrue(box.isSymbolExist());
+		assertTrue(box.isSymbolBasic());
 		
 	}
 }

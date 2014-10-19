@@ -4,7 +4,8 @@ public enum ScoreSymbol {
 	STRIKE("S", 10),
 	SPARE("/"),
 	GUTTER("G", 0),
-	NONE(" ", 0);
+	NONE(" "),
+	BASIC(" ");
 
 	
 	int value;

@@ -10,7 +10,7 @@ public class CalculateScore {
 	}
 	
 	/**
-	 * 점수 계산...^^^^^
+	 * 점수 계산...^^^^^미치겠다
 	 */
 	void calculateGame(){
 		Frame frame;

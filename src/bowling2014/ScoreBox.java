@@ -4,12 +4,9 @@ package bowling2014;
 
 public class ScoreBox {
 	
-	private ScoreSymbol symbol = ScoreSymbol.NONE;
+	private ScoreSymbol symbol = ScoreSymbol.BASIC;
 	private int score;
-	
-	String getSymbolString() {
-		return symbol.getSymbol();
-	}
+
 		
 	ScoreSymbol getSymbol(){
 		return symbol;
@@ -38,22 +35,24 @@ public class ScoreBox {
 			case 0:
 				this.symbol = ScoreSymbol.GUTTER;
 				break;
+			default:
+				this.symbol = ScoreSymbol.NONE;
 		}
 	}
 	/**
 	 * 심볼이 있는지 확인하는 함수. 
 	 * @return
 	 */
-	boolean isSymbolExist(){
-		if(symbol == ScoreSymbol.NONE) 
-			return false;
-		return true;
+	boolean isSymbolBasic(){
+		if(symbol == ScoreSymbol.BASIC) 
+			return true;
+		return false;
 	}
 	/**
 	 * 심볼이 있으면 심볼을 출력하고 아니면 스코어의 숫자를 출력. 
 	 */
 	void printBox(){
-		if(isSymbolExist()){
+		if(isSymbolBasic()){
 			System.out.print(getSymbol());
 			return;
 		}
