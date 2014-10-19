@@ -11,6 +11,8 @@ public class CalculateScore {
 	
 	/**
 	 * 점수 계산...^^^^^미치겠다
+	 * 일단은  isCalculated를 사용해서 수정할 수 있는 여지가 있음. 분명.
+	 * 잔다.
 	 */
 	void calculateGame(){
 		Frame frame;
