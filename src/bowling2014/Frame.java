@@ -40,27 +40,29 @@ public class Frame {
 		} 
 		if(throwBoxNo ==1){
 			int firstScore = box0.getScore();
-			if(firstScore == 10 && frameNo != 9) 
-				return;
-			else if(firstScore != 10 && frameNo != 9){
+			if(frameNo != 9){
+				if(firstScore == 10) {
+					return;
+				}
+				
 				box1.setScore(firstScore);
 				if(box1.getScore() + box0.getScore() == 10){
 					box1.setSymbol(ScoreSymbol.SPARE);
 				}
-			} else if(frameNo == 9){
-				box2 = new ScoreBox();
-				 if(box0.getScore()==10 ){
-					 box1.setScore(0);
-					 box2.setScore(0);
-				 } else {//10점이 아닐 때.
-					 box1.setScore(box0.getScore());
-					if(box1.getScore() + box0.getScore() == 10){//신난다 이프문이 네개 
-						box1.setSymbol(ScoreSymbol.SPARE);
-						box2 = new ScoreBox();
-						box2.setScore(0);
-					}
-				 }
+				return;
 			}
+			//10번 프레임이면 
+			box2 = new ScoreBox();
+			 if(box0.getScore()==10 ){
+				 box1.setScore(0);
+				 box2.setScore(0);
+			 } else {//10점이 아닐 때.
+				box1.setScore(box0.getScore());
+				if(getFrameScore() == 10){
+					box1.setSymbol(ScoreSymbol.SPARE);
+					box2.setScore(0);
+				}
+			 }
 			return;
 		} 
 
@@ -83,13 +85,44 @@ public class Frame {
 				+ "]";
 	}
 	
-	boolean isFrameEnded(){
-		return this.isFrameEnd;
+	public ScoreBox getBox0() {
+		return box0;
 	}
-	
-	boolean isCalEnded(){
-		return this.isCalculateEnd;
-	}
-	
 
+	public ScoreBox getBox1() {
+		return box1;
+	}
+
+	boolean isFirstBoxFilled() {
+		return isFirstBoxFilled;
+	}
+	void setFirstBoxFilled(boolean isFirstBoxFilled) {
+		this.isFirstBoxFilled = isFirstBoxFilled;
+	}
+	boolean isFrameEnd() {
+		return isFrameEnd;
+	}
+	void setFrameEnd(boolean isFrameEnd) {
+		this.isFrameEnd = isFrameEnd;
+	}
+	boolean isSecondBoxFilled() {
+		return isSecondBoxFilled;
+	}
+	void setSecondBoxFilled(boolean isSecondBoxFilled) {
+		this.isSecondBoxFilled = isSecondBoxFilled;
+	}
+	public boolean isCalculateEnd() {
+		return isCalculateEnd;
+	}
+	public void setCalculateEnd(boolean isCalculateEnd) {
+		this.isCalculateEnd = isCalculateEnd;
+	}
+	
+	int getBox0Score(){
+		return box0.getScore();
+	}
+	
+	int getFrameScore(){
+		return box0.getScore()+ box1.getScore();
+	}
 }

@@ -32,9 +32,9 @@ public class Game {
 			PrintBoard.printFrame(); 
 			printBoard.printBoardList(boardList);
 			
-			//cal.calculateGame(totalPoint);
+			// total += cal.calculateGame();
 			
-			totalPoint = cal.total;
+			totalPoint += cal.calculateGame();
 			System.out.println("total Point: "+totalPoint);
 		}
 	}
@@ -44,8 +44,8 @@ public class Game {
 		String playResult2;
 		
 		
-		playResult1 = frameList.get(i).box0.getBoxRepresentative();
-		playResult2 = frameList.get(i).box1.getBoxRepresentative();
+		playResult1 = frameList.get(i).getBox0().getBoxRepresentative();
+		playResult2 = frameList.get(i).getBox1().getBoxRepresentative();
 		boardList.add(playResult1);
 		boardList.add(playResult2);
 		
@@ -60,32 +60,7 @@ public class Game {
 	public String toString() {
 		return "Game [frameList=" + frameList + "]";
 	}
-	/*
-	public void printBoard() {
-		Frame frame;
-		for(int i = 0; i < 10; i++){
-			System.out.print("|");
-			frame = frameList.get(i); 
-			
-			if(frame.box0.getSymbol() != ScoreSymbol.NONE){
-				System.out.print(frame.box0.getSymbol().getSymbol());
-			} else {
-				System.out.print(frame.box0.getScore());
-			}
-			System.out.print("|");
-			
-			if(frame.box1.getSymbol() != ScoreSymbol.NONE){
-				System.out.print(frame.box1.getSymbol().getSymbol());
-			} else {
-				System.out.print(frame.box1.getScore());
-			}
-			
-		}
-		System.out.println();
-		System.out.println("------------------------------------------");
 
-	}
-	*/
 
 	
 	

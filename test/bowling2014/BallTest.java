@@ -12,4 +12,9 @@ public class BallTest extends TestCase {
 		assertEquals(10, ball.getScore(0));
 		//assertEquals(1, ball.getScore(9));
 	}
+	public void testInputMismatchException() throws Exception {
+		Ball ball = new Ball();
+		ball.getScore(10);
+	}
 }
+
