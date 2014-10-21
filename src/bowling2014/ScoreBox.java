@@ -19,12 +19,14 @@ public class ScoreBox {
 	public int getScore() {
 		return score;
 	}
-
+	/**
+	 * 스코어를 스코어박스에 설정하고, 심볼도 설정한다. 
+	 * @param boundary
+	 */
 	public void setScore(int boundary) {
 		Ball ball = new Ball();
 		score = ball.getScore(boundary);
 		setSymbol(score);
-		
 	}
 	
 	void setSymbol(int score){
@@ -59,8 +61,24 @@ public class ScoreBox {
 		System.out.print(score);
 		
 	}
+	
+	String getBoxRepresentative(){
+		if(this.symbol != ScoreSymbol.NONE ){
+			return symbol.getSymbol();
+		} 
+		return String.valueOf(this.score);
+	}
+	
+	void setBoxRepresentative(int score){
+		if(score == 10){
+			
+		}
+	}
+	
 	@Override
 	public String toString() {
 		return "ScoreBox [symbol=" + symbol + ", score=" + score + "]";
 	}
+	
+	
 }

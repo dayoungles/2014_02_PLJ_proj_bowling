@@ -15,7 +15,5 @@ public class GameTest extends TestCase {
 		
 	}
 	
-	public void testPrintBoard() throws Exception {
-		game.printBoard();
-	}
+
 }

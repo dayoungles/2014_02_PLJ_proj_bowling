@@ -54,7 +54,7 @@ public class Frame {
 					 box2.setScore(0);
 				 } else {//10점이 아닐 때.
 					 box1.setScore(box0.getScore());
-					if(box1.getScore() + box0.getScore() == 10){
+					if(box1.getScore() + box0.getScore() == 10){//신난다 이프문이 네개 
 						box1.setSymbol(ScoreSymbol.SPARE);
 						box2 = new ScoreBox();
 						box2.setScore(0);
@@ -83,8 +83,13 @@ public class Frame {
 				+ "]";
 	}
 	
+	boolean isFrameEnded(){
+		return this.isFrameEnd;
+	}
 	
-	
+	boolean isCalEnded(){
+		return this.isCalculateEnd;
+	}
 	
 
 }
