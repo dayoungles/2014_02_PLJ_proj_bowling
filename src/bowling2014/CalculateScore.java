@@ -8,7 +8,10 @@ public class CalculateScore {
 	public CalculateScore(ArrayList<Frame> game) {
 		this.game = game;
 	}
-
+	/**
+	 * 점수 계산하는 함수...덜덜덜 
+	 * @return
+	 */
 	int calculateGame(){
 		Frame frame;
 		int score = 0;
@@ -73,35 +76,30 @@ public class CalculateScore {
 		}
 		return score;
 	}
-
+	/**
+	 * 스페어 계산 
+	 * @param frame
+	 * @param score
+	 * @param i
+	 * @return
+	 */
 	private int calSpare(Frame frame, int score, int i) {
 		score +=  frame.getFrameScore() + game.get(i+1).getBox0Score();
 		frame.setCalculateEnd(true);
 		return score;
 	}
-
+	
+	/**
+	 *  10이하의 점수 계산 
+	 * @param frame
+	 * @param score
+	 * @return
+	 */
 	private int calUnderTen(Frame frame, int score) {
 		score += frame.getFrameScore();
 		frame.setCalculateEnd(true);
 		return score;
 	}
 	
-	
-	
-
-
-	void calculateTenthFrame() {
-		int score;
-		Frame frame = game.get(9);
-		if(frame.isStrike()){
-			score = frame.box0.getScore() + frame.box1.getScore()+ frame.box2.getScore();
-		} else if(frame.isSpare()){
-			score = frame.box0.getScore() + frame.box1.getScore() + frame.box2.getScore();
-		} else {
-			score = frame.box0.getScore()+ frame.box1.getScore();
-		}
-		
-		frame.isCalculateEnd = true;
-	}
 	
 }

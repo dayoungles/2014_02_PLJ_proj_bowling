@@ -5,25 +5,28 @@ public class Frame {
 	ScoreBox box1 = new ScoreBox();
 	ScoreBox box2;
 	int frameNo;
-	boolean isFirstBoxFilled = false;
+	boolean isFirstBoxFilled = false;//첫 박스가 채워지면 true
 	boolean isFrameEnd = false;//점수 입력이 끝나야 true로 변환.
 	boolean isCalculateEnd = false;//점수 계산이 끝나야 true로 변환. 
-	boolean isSecondBoxFilled = false;
+	boolean isSecondBoxFilled = false;//두번째 박스가 채워지면 true
 	
 	Frame(int frameNo){
 		this.frameNo = frameNo;
 	}
+	
 	public int getFrameNo() {
 		return frameNo;
 	}
-	
+	/**
+	 * 프레임 하나를 플레이 하는 함수. 
+	 * @param frameNo
+	 */
 	void playOneFrame(int frameNo){
 		fillScoreBox(0, frameNo);
-		isFirstBoxFilled = true;
+		setFirstBoxFilled(true);
 		fillScoreBox(1, frameNo);
-		isSecondBoxFilled = true;
-		isFrameEnd = true;
-		
+		setSecondBoxFilled(true);
+		setFrameEnd(true);
 	}
 	
 	
@@ -67,29 +70,31 @@ public class Frame {
 		} 
 
 	}
-
+	
+	/**
+	 * 스트라이크를 확인하는 함수 
+	 * @return
+	 */
 	boolean isStrike(){
 		if(box0.getSymbol() == ScoreSymbol.STRIKE) 
 			return true;
 		return false;
 	}
-	
+	/**
+	 * 스페어를 확인하는 함수. 
+	 * @return
+	 */
 	boolean isSpare(){
 		if(box1.getSymbol() == ScoreSymbol.SPARE)
 			return true;
 		return false;
 	}
-	@Override
-	public String toString() {
-		return "Frame [box0=" + box0 + ", box1=" + box1 + ", box2=" + box2
-				+ "]";
-	}
 	
-	public ScoreBox getBox0() {
+	ScoreBox getBox0() {
 		return box0;
 	}
 
-	public ScoreBox getBox1() {
+	ScoreBox getBox1() {
 		return box1;
 	}
 
@@ -111,10 +116,10 @@ public class Frame {
 	void setSecondBoxFilled(boolean isSecondBoxFilled) {
 		this.isSecondBoxFilled = isSecondBoxFilled;
 	}
-	public boolean isCalculateEnd() {
+	boolean isCalculateEnd() {
 		return isCalculateEnd;
 	}
-	public void setCalculateEnd(boolean isCalculateEnd) {
+	void setCalculateEnd(boolean isCalculateEnd) {
 		this.isCalculateEnd = isCalculateEnd;
 	}
 	

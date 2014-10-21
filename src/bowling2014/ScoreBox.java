@@ -1,7 +1,5 @@
 package bowling2014;
 
-
-
 public class ScoreBox {
 	
 	private ScoreSymbol symbol = ScoreSymbol.BASIC;
@@ -11,14 +9,20 @@ public class ScoreBox {
 	ScoreSymbol getSymbol(){
 		return symbol;
 	}
-
+	/**
+	 * 심볼 세팅. 
+	 * @param symbol
+	 */
 	public void setSymbol(ScoreSymbol symbol) {
 		this.symbol = symbol;
 	}
-
+	/**
+	 * @return 필드의 스코어를 리턴.
+	 */
 	public int getScore() {
-		return score;
+		return this.score;
 	}
+	
 	/**
 	 * 스코어를 스코어박스에 설정하고, 심볼도 설정한다. 
 	 * @param boundary
@@ -29,6 +33,11 @@ public class ScoreBox {
 		setSymbol(score);
 	}
 	
+	/**
+	 * 스코어에 따라서 심볼을 설정.
+	 * setScore()안에서 실행한다. 
+	 * @param score
+	 */
 	void setSymbol(int score){
 		switch (score){
 			case 10:
@@ -41,43 +50,25 @@ public class ScoreBox {
 				this.symbol = ScoreSymbol.NONE;
 		}
 	}
+	
 	/**
 	 * 심볼이 있는지 확인하는 함수. 
-	 * @return
+	 * @return 
 	 */
 	boolean isSymbolBasic(){
 		if(symbol == ScoreSymbol.BASIC) 
 			return true;
 		return false;
 	}
+
 	/**
-	 * 심볼이 있으면 심볼을 출력하고 아니면 스코어의 숫자를 출력. 
+	 * @return 심볼이 있으면 심볼을 리턴하고, 심볼이 없으면 스코어를 리턴한다.
 	 */
-	void printBox(){
-		if(isSymbolBasic()){
-			System.out.print(getSymbol());
-			return;
-		}
-		System.out.print(score);
-		
-	}
-	
 	String getBoxRepresentative(){
 		if(this.symbol != ScoreSymbol.NONE ){
 			return symbol.getSymbol();
 		} 
 		return String.valueOf(this.score);
-	}
-	
-	void setBoxRepresentative(int score){
-		if(score == 10){
-			
-		}
-	}
-	
-	@Override
-	public String toString() {
-		return "ScoreBox [symbol=" + symbol + ", score=" + score + "]";
 	}
 	
 	

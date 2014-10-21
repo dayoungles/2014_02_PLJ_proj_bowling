@@ -27,31 +27,27 @@ public class Game {
 			
 			frameList.get(i).playOneFrame(i);//플레이 프레임 하나.
 			
-			//프레임 하나의 결과인 스코어 박스를 긁어서 스코어 보드에 집어넣어놓는다. 
 			inputPointToBoard(i);
 			PrintBoard.printFrame(); 
 			printBoard.printBoardList(boardList);
-			
-			// total += cal.calculateGame();
 			
 			totalPoint += cal.calculateGame();
 			System.out.println("total Point: "+totalPoint);
 		}
 	}
-	
+	/**
+	 * 출력을 위한 어레이리스트인 boardList를 따로 채우는 함수.
+	 * @param i
+	 */
 	private void inputPointToBoard(int i) {
-		String playResult1;
-		String playResult2;
+		Frame frame = frameList.get(i);
 		
-		
-		playResult1 = frameList.get(i).getBox0().getBoxRepresentative();
-		playResult2 = frameList.get(i).getBox1().getBoxRepresentative();
-		boardList.add(playResult1);
-		boardList.add(playResult2);
+		boardList.add(frame.getBox0().getBoxRepresentative());
+		boardList.add(frame.getBox1().getBoxRepresentative());
 		
 		if(i == 9){
-			if(frameList.get(i).box0.getScore() == 10 || frameList.get(i).box1.getSymbol() == ScoreSymbol.SPARE){
-				boardList.add(frameList.get(i).box2.getBoxRepresentative());
+			if(frame.box0.getScore() == 10 || frame.box1.getSymbol() == ScoreSymbol.SPARE){
+				boardList.add(frame.box2.getBoxRepresentative());
 			}
 		}
 	}
